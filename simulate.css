@@ -1,0 +1,95 @@
+body {
+	margin: 0 auto;
+	color: #333;
+	font-family: Georgia, serif;
+
+}
+
+p {
+	color: black;
+	margin: 10px;
+}
+
+/* a {
+	text-decoration: none;
+} */
+
+.info {
+	position: relative;
+	margin-top: 150px;
+	margin-left: 800px;
+	
+}
+
+.divHolder {
+	clear: both;
+	position: fixed;
+	/* margin-top: 120px; 
+	margin-left: 400px; */
+	left: 30%;
+	top: 15%;
+	height: 90%;
+	width: 400px;
+	/* margin-left: auto;
+	margin-right: auto; */
+}
+
+
+.block {
+	display:inline-block;
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+	-webkit-transition: opacity 250 ms ease;
+	-moz-transition: opacity 250 ms ease;
+	-ms-transition: opacity 250 ms ease;
+	-o-transition: opacity 250 ms ease;
+	transition: opacity 250ms ease;
+}
+
+.lit {
+	opacity: 1;
+	border: thick solid fuchsia;
+	
+}
+
+#start{
+	color: black;
+	width: 90px;
+	font-size: 1.2em;
+	border-radius: 10px;
+	box-sizing: border-box;
+	background: lightblue;
+	border: none;
+}
+
+#start:hover {
+	background: lightcyan;
+}
+
+.hoverable:hover {
+	cursor: pointer;
+}
+
+footer {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	bottom: 15px;
+}
+
+#name {
+	color: mediumvioletred;
+}
+
+#name:hover {
+	font-size: 120%;
+}
+
+#kelly {
+	color: lightskyblue;
+}
+
+#kelly:hover {
+	font-size: 120%;
+}
