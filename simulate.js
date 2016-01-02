@@ -25,12 +25,33 @@ $(document).ready(function() {
 	/* resets the game to four blocks */
 	Game.prototype.reset = function() {
 		$('.block').remove();
-		$("#score").text(0);
-		$("#level").text(1);
-		if (simulate !== undefined) {
-			simulate = new Game(4);
-			simulate.makeDiv();
-		} 
+		var $score = $("#score");
+		var $level = $("#level");
+		if ($score.length === 0  && $level.length === 0) {
+			$('.info p').remove();
+			var scoreTxt = $("<p></p>").text("Score: ");
+			var score = $("<span></span>").text("0");
+			score.attr('id',"score");
+			scoreTxt.append(score);
+			var levelTxt = $("<p></p>").text("Level: ");
+			var level = $("<span></span>").text("1");
+			level.attr('id','level');
+			levelTxt.append(level);
+			$('.info').append(scoreTxt, levelTxt);
+			if (simulate !== undefined) {
+				simulate = new Game(4);
+				simulate.makeDiv();
+			} 
+
+		}
+		else {
+			$score.text(0);
+			$level.text(1);
+			if (simulate !== undefined) {
+				simulate = new Game(4);
+				simulate.makeDiv();
+			} 
+		}
 		rightBlockId = 0;       //reset the correct id
 		numClicks = 0;		
 	}
@@ -73,15 +94,25 @@ $(document).ready(function() {
 		playCollisionSound();
 		numClicks++;
 		if (numClicks == simulate.size && parseInt($(this).attr('id')) === rightBlockId) {
-			if (simulate.size === 9) {
+			if (simulate.size === 5) {
 				//user beat the game
 				$('.info p').remove();
-				var $winner = $("<p></p>").text("Congratulations, you beat the game!");
+				var $winner = $("<p></p>").text("Congratulations, you beat the game!", "Yes or no");
 				$(".info").prepend($winner);
-				simulate.reset(4);
+				var ans = prompt("Play again?", "Answer yes or no");
+				if (ans === "yes" || ans === "Yes") {
+					simulate.reset(4);
+				}
+				else {
+					var cgol = prompt("Play a different game?", "Answer yes or no");
+					if (cgol === "yes" || cgol === "Yes") {
+						window.location.assign("http://victorcui96.github.io/conway-life/");
+					}
+				}
+				
 			}
 			else {
-				//user won the current level
+				//user beat the current level
 				var $score = $("#score");
 				var currScore = parseInt($("#score").text());
 				$score.text(currScore+10);
