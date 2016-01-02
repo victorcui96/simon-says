@@ -94,7 +94,7 @@ $(document).ready(function() {
 		playCollisionSound();
 		numClicks++;
 		if (numClicks == simulate.size && parseInt($(this).attr('id')) === rightBlockId) {
-			if (simulate.size === 5) {
+			if (simulate.size === 9) {
 				//user beat the game
 				$('.info p').remove();
 				var $winner = $("<p></p>").text("Congratulations, you beat the game!", "Yes or no");
