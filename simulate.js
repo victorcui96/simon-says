@@ -101,12 +101,15 @@ $(document).ready(function() {
 				$(".info").prepend($winner);
 				var ans = prompt("Play again?", "Answer yes or no");
 				if (ans === "yes" || ans === "Yes") {
-					simulate.reset(4);
+					simulate.reset();
 				}
 				else {
 					var cgol = prompt("Play a different game?", "Answer yes or no");
 					if (cgol === "yes" || cgol === "Yes") {
 						window.location.assign("http://victorcui96.github.io/conway-life/");
+					}
+					else {
+						simulate.reset();
 					}
 				}
 				
@@ -140,7 +143,7 @@ $(document).ready(function() {
 			$loserMsg.append($level + " levels");
 			$(".info").append($loserMsg);
 			//TODO: reset game to 4 tiles
-			simulate.reset(4);
+			simulate.reset();
 
 		}
 		rightBlockId++;
